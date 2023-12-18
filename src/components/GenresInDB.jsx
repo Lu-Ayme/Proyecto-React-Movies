@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Genre from "./Genre";
 import '../assets/css/app.css'
+// import { useEffect, useState } from 'react'
 
 class GenresInDb extends Component {
 
@@ -11,20 +12,18 @@ class GenresInDb extends Component {
     }
   }
 
+
   componentDidMount() {
-    fetch('/api/genres')
-      .then(respuesta => {
-        return respuesta.json()
-      })
+    fetch('http://localhost:3001/api/genres')
+    .then(res => res.json())
       .then(genres => {
-        console.log(genres)
         this.setState({ genresList: genres.data })
       })
-      .catch(error => console.log(error))
-  }
+  };
 
-  cambiardecolor(){
-    document.querySelector('card-body').style.backgroundColor='bg-secondary'
+  cambiarColor() {
+    let parte = document.querySelector('h6')
+    parte.classList.toggle(bg - secondary)
   }
 
 
@@ -34,15 +33,19 @@ class GenresInDb extends Component {
         <div className="col-lg-6 mb-4">
           <div className="card shadow mb-4">
             <div className="card-header py-3">
-              <h6 onMouseOver={this.cambiardecolor}  className="m-0 font-weight-bold text-gray-800">
+              <h6 className="m-0 font-weight-bold text-gray-800">
                 Genres in Data Base
               </h6>
             </div>
             <div className="card-body">
               <div className="row">
+                {/*{genresList.map(producto => (<li key={producto.id}>{producto.name}</li>))}*/}
+
+
                 {this.state.genresList.map((genre, index) => {
                   return <Genre {...genre} key={index} />
                 })}
+
               </div>
             </div>
           </div>

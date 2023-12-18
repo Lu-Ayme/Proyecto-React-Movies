@@ -5,7 +5,7 @@ class Movie extends Component {
     constructor() {
         super()
         this.state = {
-            genresList: []
+            movies: []
         }
     }
 
@@ -14,24 +14,15 @@ class Movie extends Component {
             .then(respuesta => {
                 return respuesta.json()
             })
-            .then(genres => {
-                console.log(genres)
-                this.setState({ genresList: genres.data })
+            .then(movies => {
+                console.log(movies)
+                this.setState({ movies: movies.data })
             })
             .catch(error => console.log(error))
     }
     render() {
         return (
-            <thead>
-                <tr>
-
-                    <th>Id</th>
-                    <th>Título</th>
-                    <th>Calificación</th>
-                    <th>Premios</th>
-                    <th>Duración</th>
-                </tr>
-            </thead>
+          <></>
         )
     }
 }

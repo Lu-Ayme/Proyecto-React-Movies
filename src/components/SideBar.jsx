@@ -2,6 +2,9 @@ import React from "react";
 import logo from '../assets/images/logo-DH.png'
 import '../assets/css/app.css'
 
+
+import { Link } from "react-router-dom";
+
 function SideBar() {
   return (
     <>
@@ -21,7 +24,9 @@ function SideBar() {
         <li className="nav-item active">
           <a className="nav-link" href="/">
             <i className="fas fa-fw fa-tachometer-alt" />
-            <span>Dashboard - DH movies</span>
+            <span>
+              <Link to='/'>Dashboard - DH movies</Link>
+            </span>
           </a>
         </li>
         <hr className="sidebar-divider" />
@@ -29,19 +34,35 @@ function SideBar() {
         <li className="nav-item">
           <a className="nav-link collapsed" href="/">
             <i className="fas fa-fw fa-folder" />
-            <span>Pages</span>
+            <span>
+              <Link to='/genresInDB'>Genres</Link>
+            </span>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/">
             <i className="fas fa-fw fa-chart-area" />
-            <span>Charts</span>
+            <span>
+              <Link to='/lastMovieInDB'>Last movie in DB</Link>
+            </span>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/">
             <i className="fas fa-fw fa-table" />
-            <span>Tables</span>
+            <span>
+              <Link to='/tables'>Tables</Link>
+            </span>
+
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/">
+            <i className="fas fa-fw fa-table" />
+            <span>
+              <Link to='/search'>Search</Link>
+            </span>
+
           </a>
         </li>
         <hr className="sidebar-divider d-none d-md-block" />

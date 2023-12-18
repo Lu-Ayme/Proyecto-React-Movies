@@ -1,29 +1,51 @@
 import React from "react";
+import CajitasPequeñas from "./CajitasPequeñas";
 import '../assets/css/app.css'
 
-function ContentRowMovies(props) {
-  return (
-    <>
-      <div className="col-md-4 mb-4">
-          <div className={'card ${props.colorDeBorde} shadow h-100 py-2'}>
-            <div className="card-body">
-              {props.colorDeBorde}
-              <div className="row no-gutters align-items-center">
-                <div className="col mr-2">
-                  <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                    {props.titulo}
-                  </div>
-                  <div className="h5 mb-0 font-weight-bold text-gray-800">{props.cifra}</div>
-                </div>
-                <div className="col-auto">
-                  <i className="fas {props.icono} fa-2x text-gray-300" />
-                </div>
-              </div>
-            </div>
-          </div>
+/* <!-- Movies in DB --> */
+
+let moviesInDB = {
+    title: 'Movies in Data Base',
+    color: 'primary', 
+    cuantity: 21,
+    icon: 'fa-clipboard-list'
+}
+
+/* <!-- Total awards --> */
+
+let totalAwards = {
+    title:' Total awards', 
+    color:'success', 
+    cuantity: '79',
+    icon:'fa-award'
+}
+
+/* <!-- Actors quantity --> */
+
+let actorsQuantity = {
+    title:'Actors quantity' ,
+    color:'warning',
+    cuantity:'49',
+    icon:'fa-user-check'
+}
+
+let cartProps = [moviesInDB, totalAwards, actorsQuantity];
+
+function ContentRowMovies() {
+	return (
+		<>
+			<div className="row">
+            
+            {cartProps.map( (movie, i) => {
+
+                return < CajitasPequeñas {...movie} key={i}/>
+            
+            })}
+
         </div>
-    </>
-  )
+
+		</>
+	)
 }
 
 export default ContentRowMovies
